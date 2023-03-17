@@ -11,12 +11,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHostedService<ClCardSyncJob>();
+//builder.Services.AddHostedService<ClCardSyncJob>();
+//builder.Services.AddHostedService<StockFlSyncJob>();
+builder.Services.AddHostedService<StockLvSyncJob>();
 builder.Services.AddScoped<IClCardService,ClCardManager>();
+builder.Services.AddScoped<IStockFlService, StockFlManager>();
+builder.Services.AddScoped<IStockLvService, StockLvManager>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -24,9 +30,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

@@ -16,7 +16,7 @@ namespace rtdc_rest.api.Models
         public string email { get; set; }
         public string Phone { get; set; }
         public string taxOffice { get; set; }
-        public int taxNumber { get; set; }
+        public long taxNumber { get; set; }
         public string contactName { get; set; }
         public string country { get; set; }
         public string city { get; set; }
